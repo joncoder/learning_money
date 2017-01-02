@@ -1,15 +1,16 @@
 def generate_minimum_coins(cents)
-	coins = {}
-	if cents >= 10
-		coins[:dimes] = cents/10
-		cents = cents%10
+	change = {}
+	coins = {dimes: 10, nickles: 5, pennies: 1}
+	if cents >= coins[:dimes]
+		change[:dimes] = cents/coins[:dimes]
+		cents = cents%coins[:dimes]
 	end
-	if cents >= 5
-		coins[:nickles] = 1
-		cents -= 5
+	if cents >= coins[:nickles]
+		change[:nickles] = 1
+		cents -= coins[:nickles]
 	end
-	if cents > 0
-		coins[:pennies] = cents
+	if cents >= coins[:pennies]
+		change[:pennies] = cents
 	end
-	coins
+	change
 end
