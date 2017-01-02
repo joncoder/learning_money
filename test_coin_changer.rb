@@ -17,4 +17,8 @@ class TestCoinChanger < Minitest::Test
 	def test_five_cents_returns_one_nickle
 		assert_equal({nickles: 1}, generate_minimum_coins(5))
 	end
+
+	def test_six_cents_returns_one_nickle_one_penny
+		assert_equal({nickles: 1, pennies: 1}, generate_minimum_coins(6))
+	end
 end
