@@ -21,4 +21,12 @@ class TestCoinChanger < Minitest::Test
 	def test_six_cents_returns_one_nickle_one_penny
 		assert_equal({nickles: 1, pennies: 1}, generate_minimum_coins(6))
 	end
+
+	def test_ten_cents_returns_one_dime
+		assert_equal({dimes: 1}, generate_minimum_coins(10))
+	end
+
+	def test_17_cents_returns_one_dime_one_nickle_two_pennies
+		assert_equal({dimes: 1, nickles: 1, pennies: 2}, generate_minimum_coins(17))
+	end
 end
